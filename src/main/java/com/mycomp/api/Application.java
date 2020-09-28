@@ -7,7 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-@ImportResource("classpath:spring/applicationcontext.xml")
+@ImportResource("classpath:spring/applicationContext.xml")
 @EnableSwagger2
 public class Application {
 	public static void main(String[] args) {

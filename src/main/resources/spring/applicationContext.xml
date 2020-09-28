@@ -21,7 +21,7 @@
 			allow-credentials="true"
 			max-age="3600" />
 	</mvc:cors>
-
-	<context:property-placeholder location="classpath*:/application.properties" ignore-unresolvable = "false"/>
+	<context:property-placeholder location="classpath*:/application.properties"/>
+	
 	<import resource = "classpath:database/dataSource-config.xml"/>
 </beans> 

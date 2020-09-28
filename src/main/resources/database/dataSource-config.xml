@@ -14,17 +14,23 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
         
 	    <bean id="myDataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+	        <property name="driverClassName"    value="org.postgresql.Driver"/>
+	        <property name="username"           value="postgres"/>
+	        <property name="password"           value="admin"/>
+	        <property name="url"                value="jdbc:postgresql://localhost:5432/postgres"/>
+    	</bean>
+	    <!-- <bean id="myDataSource" class="org.apache.commons.dbcp2.BasicDataSource">
 			<property name="driverClassName" value="org.postgresql.Driver"/>
- 			<property name="url" value="${postgres.datasource.url}"/>
- 			<property name="username" value="${postgres.datasource.username"/>
- 			<property name="password" value="${postgres.datasource.password"/>
-		</bean>
+ 			<property name="url" value="jdbc:postgresql://localhost:5432/postgres"/>
+ 			<property name="username" value="postgres"/>
+ 			<property name="password" value="admin"/>
+		</bean> -->
 	    
 	    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
     	<property name="dataSource" ref="myDataSource"/>
     	<property name="configurationProperties">
     		<props>
-    			<prop key="PG_SCHEMA"> ${postgres.schema}</prop>
+    			<prop key="PG_SCHEMA">TestSchema</prop>
     		</props>
     	</property>
     	<property name="mapperLocations" value="classpath:mappers/*.xml"/>
@@ -36,4 +42,5 @@
     	<property name="mapperInterface" value="com.mycomp.api.repository.PostgresDBAccessMapper"/>
     	<property name="sqlSessionFactory" ref="sqlSessionFactory"/>
     </bean>
+    
 </beans> 
